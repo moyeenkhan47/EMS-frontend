@@ -1,0 +1,193 @@
+/* General Container */
+.employee-list-container {
+  width: 80%; /* Container width for employee list */
+  margin: 0 auto;
+  padding: 20px;
+  background-color: #ffffff;
+  border-radius: 6px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  font-family: Arial, sans-serif;
+}
+
+/* Header Styling */
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+  flex-wrap: wrap; /* Allow buttons to wrap in smaller screens */
+}
+
+.header h1 {
+  font-size: 24px;
+  color: #333;
+  font-weight: 600;
+  margin: 0;
+  flex: 1; /* Allow the title to take available space */
+  text-align: left;
+}
+
+button {
+  background-color: transparent; /* Remove background color */
+  color: #007bff; /* Text color */
+  padding: 8px 16px;
+  font-size: 14px;
+  border: none; /* Remove border */
+  cursor: pointer;
+  transition: color 0.3s ease;
+  margin: 5px 10px;
+  text-align: center; /* Center text */
+  font-weight: 600; /* Add some weight to the text */
+}
+
+button:hover {
+  color: #0056b3; /* Change text color on hover */
+}
+
+/* Button Styles for Specific Actions */
+.register-button, .leave-button, .logout-button {
+  color: #007bff; /* Text color for these buttons */
+}
+
+.register-button:hover, .leave-button:hover, .logout-button:hover {
+  color: #0056b3; /* Hover text color */
+}
+
+/* Table Styling */
+.employee-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.employee-table th, .employee-table td {
+  padding: 12px 15px;
+  border: 1px solid #ddd;
+  text-align: left;
+}
+
+.employee-table th {
+  background-color: #f4f4f4;
+  font-weight: bold;
+}
+
+.employee-table td {
+  background-color: #fff;
+}
+
+.employee-table tr:nth-child(even) {
+  background-color: #f9f9f9;
+}
+
+.employee-table a {
+  color: #007bff;
+  text-decoration: none;
+  font-weight: 600;
+}
+
+.employee-table a:hover {
+  color: #0056b3;
+}
+
+.delete-button, .download-button {
+  color: #dc3545; /* Red text for delete and download */
+}
+
+.delete-button:hover, .download-button:hover {
+  color: #c82333; /* Darker red on hover */
+}
+
+.yes-color {
+  color: green;
+}
+
+.no-color {
+  color: red;
+}
+
+/* No Data Styling */
+.no-data {
+  text-align: center;
+  font-size: 16px;
+  color: #555;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  /* Adjust header layout for mobile */
+  .header {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .header h1 {
+    font-size: 20px; /* Smaller title */
+  }
+
+  .employee-list-container {
+    width: 90%; /* Increase width for mobile */
+  }
+
+  /* Table Styling Adjustments */
+  .employee-table th, .employee-table td {
+    padding: 10px 12px; /* Smaller padding for table cells */
+  }
+
+  /* Button Adjustments for Mobile */
+  button {
+    width: 100%; /* Full width buttons */
+    margin: 5px 0;
+  }
+
+  .employee-table a, .delete-button, .download-button {
+    width: 100%; /* Full width buttons in the table for mobile */
+    margin-bottom: 5px;
+  }
+
+  .employee-table td {
+    padding: 8px; /* Smaller padding for table cells */
+  }
+
+  .no-data {
+    font-size: 14px; /* Smaller text on mobile */
+  }
+}
+/* Style for the search box */
+.search-box {
+  width: 300px;
+  padding: 8px 12px;
+  margin-right: 20px;
+  font-size: 16px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+  outline: none;
+  transition: border-color 0.3s ease-in-out;
+}
+
+.search-box:focus {
+  border-color: #007bff;
+  box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
+}
+.pagination {
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+}
+
+.pagination button {
+  padding: 5px 10px;
+  margin: 0 5px;
+  border: 1px solid #ddd;
+  background-color: #fff;
+  cursor: pointer;
+}
+
+.pagination button.active {
+  background-color: #007bff;
+  color: #fff;
+  border-color: #007bff;
+}
+
+.pagination button:hover {
+  background-color: #f0f0f0;
+}

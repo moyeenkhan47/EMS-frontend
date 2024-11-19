@@ -1,0 +1,57 @@
+<div class="employee-search">
+    <h2>Search Employee by ID</h2>
+    
+    <!-- Employee ID Input Field with Reactive Forms -->
+    <form [formGroup]="searchForm">
+      <div class="form-group">
+        <label for="employeeId">Employee ID:</label>
+        <input
+          id="employeeId"
+          formControlName="employeeId"
+          type="text"
+          class="form-control"
+          placeholder="Enter Employee ID"
+          (input)="onSearchChange()"
+        />
+        <!-- Validation Message -->
+        <div *ngIf="searchForm.controls['employeeId'].invalid && searchForm.controls['employeeId'].touched" class="error-message">
+          Employee ID is required.
+        </div>
+      </div>
+    </form>
+  
+    <!-- Display Employee Details if Found -->
+    <div *ngIf="employeeDetails" class="employee-details">
+      <div class="details-wrapper">
+        <!-- Employee Details List -->
+        <div class="employee-info">
+          <h3>Complete Information Of Employee</h3>
+          <ul>
+            <li><strong>Full Name:</strong> {{ employeeDetails.firstName }} {{ employeeDetails.lastName }}</li>
+            <li><strong>Email:</strong> {{ employeeDetails.email }}</li>
+            <li><strong>Phone Number:</strong> {{ employeeDetails.phoneNumber }}</li>
+            <li><strong>Address:</strong> {{ employeeDetails.address }}</li>
+            <li><strong>Country:</strong> {{ employeeDetails.country }}</li>
+            <li><strong>Date Of Birth:</strong> {{ employeeDetails.dateOfBirth }}</li>
+            <li><strong>Job Title:</strong> {{ employeeDetails.jobTitle }}</li>
+            <li><strong>Date of Joining:</strong> {{ employeeDetails.dateOfJoining }}</li>
+            <li><strong>Employement Type:</strong> {{ employeeDetails.employmentType }}</li>
+            <li><strong>Employment Status:</strong> {{ employeeDetails.employmentStatus }}</li>
+          </ul>
+        </div>
+  
+        <!-- Employee Photo -->
+        <div class="employee-photo">
+          <img *ngIf="employeeDetails.empPhoto" [src]="'data:image/jpeg;base64,' + employeeDetails.empPhoto" alt="Employee Photo" />
+        </div>
+      </div>
+    </div>
+    <div class="button-container">
+      <button class="back-button" (click)="navigateToEmployeeList()">Back</button>
+    </div>
+    <!-- Show Error Message if Employee Not Found -->
+    <div *ngIf="errorMessage" class="error-message">
+      {{ errorMessage }}
+    </div>
+  </div>
+  

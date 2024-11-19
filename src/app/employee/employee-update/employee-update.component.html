@@ -1,0 +1,131 @@
+<div class="form-container">
+  <h1>Update Employee Details</h1>
+  <form [formGroup]="updateForm" (ngSubmit)="onSubmit()">
+  
+    <!-- First and Last Name Fields -->
+    <div class="row">
+      <div class="column">
+        <div class="form-group">
+          <label for="firstName">First Name</label>
+          <input
+            id="firstName"
+            formControlName="firstName"
+            type="text"
+            placeholder="Enter first name"
+          />
+        </div>
+      </div>
+      <div class="column">
+        <div class="form-group">
+          <label for="lastName">Last Name</label>
+          <input
+            id="lastName"
+            formControlName="lastName"
+            type="text"
+            placeholder="Enter last name"
+          />
+        </div>
+      </div>
+    </div>
+  
+    <!-- Address Field -->
+    <div class="form-group">
+      <label for="address">Address</label>
+      <input id="address" formControlName="address" type="text" placeholder="Enter address" />
+    </div>
+  
+    <!-- Country and Date of Birth Fields -->
+    <div class="row">
+      <div class="column">
+        <div class="form-group">
+          <label for="country">Country</label>
+          <input id="country" formControlName="country" type="text" placeholder="Enter country" />
+        </div>
+      </div>
+      <div class="column">
+        <div class="form-group">
+          <label for="dateOfBirth">Date of Birth</label>
+          <input id="dateOfBirth" formControlName="dateOfBirth" type="date" />
+        </div>
+      </div>
+    </div>
+  
+    <!-- Email and Phone Number Fields -->
+    <div class="row">
+      <div class="column">
+        <div class="form-group">
+          <label for="email">Email</label>
+          <input id="email" formControlName="email" type="email" placeholder="Enter email address" />
+        </div>
+      </div>
+      <div class="column">
+        <div class="form-group">
+          <label for="phoneNumber">Phone Number</label>
+          <input id="phoneNumber" formControlName="phoneNumber" type="text" placeholder="Enter phone number" />
+        </div>
+      </div>
+    </div>
+  
+    <!-- Job Title and Date of Joining Fields -->
+    <div class="row">
+      <div class="column">
+        <div class="form-group">
+          <label for="jobTitle">Job Title</label>
+          <input id="jobTitle" formControlName="jobTitle" type="text" placeholder="Enter job title" />
+        </div>
+      </div>
+      <div class="column">
+        <div class="form-group">
+          <label for="dateOfJoining">Date of Joining</label>
+          <input id="dateOfJoining" formControlName="dateOfJoining" type="date" />
+        </div>
+      </div>
+    </div>
+  
+    <!-- Employment Type and Status Fields -->
+    <div class="row">
+      <div class="column">
+        <div class="form-group">
+          <label for="employmentType">Employment Type</label>
+          <select formControlName="employmentType" id="employmentType">
+            <option value="FULL_TIME">Full-time</option>
+            <option value="PART_TIME">Part-time</option>
+            <option value="CONTRACT">Contract</option>
+          </select>
+        </div>
+      </div>
+      <div class="column">
+        <div class="form-group">
+          <label for="employmentStatus">Employment Status</label>
+          <select formControlName="employmentStatus" id="employmentStatus">
+            <option value="ACTIVE">Active</option>
+            <option value="INACTIVE">Inactive</option>
+            <option value="TERMINATED">Terminated</option>
+          </select>
+        </div>
+      </div>
+    </div>
+  
+    <!-- File Uploads for Photo and ID Proof -->
+    <div class="row">
+      <div class="column">
+        <div class="form-group">
+          <label for="empPhoto">Employee Photo</label>
+          <input id="empPhoto" type="file" (change)="onFileChange($event, 'empPhoto')" />
+        </div>
+      </div>
+      <div class="column">
+        <div class="form-group">
+          <label for="idProof">ID Proof</label>
+          <input id="idProof" type="file" (change)="onFileChange($event, 'idProof')" />
+        </div>
+      </div>
+    </div>
+  
+    <!-- Submit Button -->
+    <div class="button-container">
+      <button type="submit" [disabled]="!updateForm.valid">Submit</button>
+      <button type="button" class="back-button" (click)="navigateToEmployeeList()">Back</button>
+    </div>
+  </form>
+</div>

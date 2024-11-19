@@ -1,0 +1,58 @@
+<div class="employee-list-container">
+  <div class="header">
+    <!-- Search Box -->
+    <input 
+      type="text" 
+      placeholder="Search by Employee ID or Name" 
+      [(ngModel)]="searchQuery" 
+      (input)="filterEmployees()" 
+      class="search-box"
+    />
+    <button class="register-button" (click)="navigateToRegister()">Employee Register</button>
+    <button class="leave-button" (click)="navigateLeaveManagement()">Leave Management</button>
+    <button class="leave-button" (click)="navigateEmployeeExit()">Employee Exit</button>
+    <button (click)="logout()" class="logout-button">Logout</button>
+  </div>
+
+  <table *ngIf="filteredEmployees && filteredEmployees.length > 0" class="employee-table">
+    <thead>
+      <tr>
+        <th>Sr.No</th>
+        <th>Employee ID</th>
+        <th>Full Name</th>
+        <th>Email</th>
+        <th>Registered</th>
+        <th>Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let employee of filteredEmployees; let i = index">
+        <td>{{ i + 1 }}</td> <!-- Serial Number -->
+        <td>{{ employee.employeeId }}</td>
+        <td>{{ employee.fullName }}</td>
+        <td>{{ employee.email }}</td>
+        <td [ngClass]="{'yes-color': employee.register, 'no-color': !employee.register}">
+          {{ employee.register ? 'Yes' : 'No' }}
+        </td>
+        <td>
+          <a [routerLink]="['/admin/details', employee.employeeId]" class="view-button">View</a>
+          <button (click)="deleteEmployee(employee.employeeId)" class="delete-button">Delete</button>
+          <button (click)="downloadIdProof(employee.employeeId)" class="download-button">Download</button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+
+  <div *ngIf="!filteredEmployees || filteredEmployees.length === 0" class="no-data">
+    <p>No employees found.</p>
+  </div>
+</div>
+<!-- Pagination Controls -->
+<div class="pagination" *ngIf="filteredEmployees.length > itemsPerPage">
+  <button 
+    *ngFor="let page of [].constructor(Math.ceil(filteredEmployees.length / itemsPerPage)); let pageIndex = index" 
+    (click)="changePage(pageIndex + 1)"
+    [class.active]="currentPage === pageIndex + 1">
+    {{ pageIndex + 1 }}
+  </button>
+</div>

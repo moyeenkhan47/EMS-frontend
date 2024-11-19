@@ -1,0 +1,85 @@
+.employee-details-container {
+  width: 60%; /* Reduced page size */
+  margin: 40px auto;
+  padding: 20px;
+  font-family: Arial, sans-serif;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+  background-color: #f9f9f9;
+}
+
+.employee-details-container h2 {
+  text-align: center;
+  color: #333;
+}
+
+.employee-photo img {
+  width: 120px; /* Smaller photo size */
+  height: 120px;
+  border-radius: 50%;
+  display: block;
+  margin: 0 auto 20px;
+}
+
+.employee-info table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 10px;
+}
+
+.employee-info th, .employee-info td {
+  padding: 8px;
+  text-align: left;
+  border-bottom: 1px solid #ddd;
+}
+
+.employee-info th {
+  width: 30%;
+  background-color: #f0f0f0;
+  color: #333;
+}
+
+.employee-info td {
+  color: #555;
+}
+
+.button-container {
+  display: flex;
+  justify-content: center; /* Center the buttons horizontally */
+  align-items: center;
+  margin-top: 20px;
+}
+
+.update-button, .back-button {
+  width: 120px; /* Smaller button width */
+  padding: 8px 12px; /* Adjust padding for smaller size */
+  font-size: 14px; /* Smaller font size */
+  font-weight: bold;
+  text-align: center;
+  color: #fff;
+  background-color: #007bff; /* Primary color for Update */
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+  margin: 0 10px; /* Space between buttons */
+}
+
+.back-button {
+  background-color: #6c757d; /* Secondary color for Back */
+}
+
+.update-button:hover {
+  background-color: #0056b3;
+}
+
+.back-button:hover {
+  background-color: #5a6268;
+}
+
+.error-message {
+  color: #ff4d4d;
+  text-align: center;
+  margin-top: 20px;
+}

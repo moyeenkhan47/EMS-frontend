@@ -1,0 +1,120 @@
+/* Container Styling */
+.form-container {
+  max-width: 500px;
+  margin: 2rem auto;
+  padding: 2rem;
+  background-color: #ffffff;
+  border-radius: 10px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  font-family: Arial, sans-serif;
+  color: #333;
+}
+
+h1 {
+  font-size: 24px;
+  color: #333;
+  margin-bottom: 1.5rem;
+  text-align: center;
+}
+
+/* Label Styling */
+label {
+  display: block;
+  font-weight: bold;
+  color: #555;
+  margin-bottom: 0.5rem;
+  font-size: 14px;
+}
+
+/* Input Field Styling */
+input[type="text"],
+input[type="email"],
+input[type="password"] {
+  width: 100%;
+  padding: 12px;
+  margin-bottom: 1rem;
+  font-size: 14px;
+  color: #333;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  box-sizing: border-box;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+input[type="text"]:focus,
+input[type="email"]:focus,
+input[type="password"]:focus {
+  border-color: #007bff;
+  box-shadow: 0 0 5px rgba(0, 123, 255, 0.3);
+  outline: none;
+}
+
+/* Error Message Styling */
+.error-message {
+  color: #d9534f;
+  font-size: 12px;
+  margin-top: -0.5rem;
+  margin-bottom: 0.8rem;
+}
+
+/* Button Container */
+.button-container {
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+  margin-top: 1.5rem;
+}
+
+/* Submit Button Styling */
+button[type="submit"],
+.back-button {
+  width: 100%;
+  padding: 12px;
+  font-size: 16px;
+  font-weight: bold;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+/* Submit Button Specific Styles */
+button[type="submit"] {
+  background-color: #28a745;
+  color: #ffffff;
+}
+
+button[type="submit"]:hover {
+  background-color: #218838;
+}
+
+button[type="submit"]:disabled {
+  background-color: #cccccc;
+  cursor: not-allowed;
+}
+
+/* Back Button Specific Styles */
+.back-button {
+  background-color: #ffc107;
+  color: #ffffff;
+}
+
+.back-button:hover {
+  background-color: #e0a800;
+}
+
+/* Invalid Field Styling */
+.invalid {
+  border-color: #d9534f;
+}
+
+/* Responsive Layout */
+@media (max-width: 600px) {
+  .form-container {
+      padding: 1.5rem;
+  }
+
+  h1 {
+      font-size: 20px;
+  }
+}

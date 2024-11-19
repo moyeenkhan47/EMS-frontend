@@ -1,0 +1,63 @@
+<div class="exit-container">
+  <h2>Employee Exit Management</h2>
+
+  <!-- Fetch and Display All Employees -->
+<!-- Fetch and Display All Employees -->
+<!-- Fetch and Display All Employees -->
+<div class="employee-list">
+  <h3>All Employees</h3>
+  <table class="employee-table">
+    <thead>
+      <tr>
+        <th>Employee ID</th>
+        <th>Name</th>
+        <th>Email</th>
+        <th>Action</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let employee of employees">
+        <td>{{ employee.employeeId }}</td>
+        <td>{{ employee.firstName }} {{ employee.lastName }}</td>
+        <td>{{ employee.email }}</td>
+        <td>
+          <button class="mark-exit-btn" (click)="markForExit(employee.employeeId, 'TERMINATED')">
+            Mark for Exit
+          </button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+
+
+
+  <!-- Submit Exit Details -->
+  <div class="exit-form">
+    <h3>Submit Exit Details</h3>
+    <label for="employeeId">Employee ID</label>
+    <input type="number" id="employeeId" [(ngModel)]="exitEmployeeId" />
+
+    <label for="reason">Exit Reason</label>
+    <input type="text" id="reason" [(ngModel)]="exitReason" />
+
+    <label for="exitDate">Exit Date</label>
+    <input type="date" id="exitDate" [(ngModel)]="exitDate" />
+
+    <button class="submit-btn" (click)="submitExitDetails()">Submit Exit Details</button>
+    <div *ngIf="successMessage" class="success">{{ successMessage }}</div>
+    <div *ngIf="errorMessage" class="error">{{ errorMessage }}</div>
+  </div>
+
+  <!-- Fetch Exited Employees -->
+  <div class="exited-list">
+    <h3>Exited Employees</h3>
+    <button class="fetch-exited-btn" (click)="fetchExitedEmployees()">Fetch Exited Employees</button>
+    <ul>
+      <li *ngFor="let exitedEmployee of exitedEmployees">
+        <span>{{ exitedEmployee.name }} (Exited on: {{ exitedEmployee.exitDate }})</span>
+      </li>
+    </ul>
+  </div>
+</div>

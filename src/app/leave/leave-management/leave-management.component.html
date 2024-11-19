@@ -1,0 +1,91 @@
+<div class="request-management">
+  <!-- Button Section -->
+  <div class="button-section">
+    <button (click)="showSection('request')" class="btn">Leave Request</button>
+    <button (click)="showSection('myLeave')" class="btn">My Leave</button>
+
+  </div>
+
+   <!-- Back Button -->
+   <div class="back-button">
+    <button (click)="navigateToDashboard()" class="btn back-btn">Back to Dashboard</button>
+  </div>
+
+
+  <!-- Leave Request Form Section -->
+  <div *ngIf="activeSection === 'request'" class="leave-request-form">
+    <h2>Leave Request Form</h2>
+    <form (ngSubmit)="submitLeave()" #leaveForm="ngForm" class="leave-form">
+      <div class="form-group">
+        <label for="employeeName">Employee Name:</label>
+        <input type="text" id="employeeName" name="employeeName" [(ngModel)]="leave.employeeName" required>
+      </div>
+      <div class="form-group">
+        <label for="employeeEmail">Email:</label>
+        <input type="text" id="employeeEmail" name="email" [(ngModel)]="leave.email" required readonly>
+      </div>
+      
+
+      <div class="form-group">
+        <label for="leaveType">Leave Type:</label>
+        <select id="leaveType" name="leaveType" [(ngModel)]="leave.leaveType" required>
+          <option value="PERSONAL">Personal Leave</option>
+          <option value="VACATION">Vacation Leave</option>
+          <option value="SICK">Sick Leave</option>
+        </select>
+      </div>
+
+      <div class="form-group">
+        <label for="startDate">Start Date:</label>
+        <input type="date" id="startDate" name="startDate" [(ngModel)]="leave.startDate" required>
+      </div>
+
+      <div class="form-group">
+        <label for="endDate">End Date:</label>
+        <input type="date" id="endDate" name="endDate" [(ngModel)]="leave.endDate" required>
+      </div>
+
+      <button type="submit" [disabled]="!leaveForm.form.valid" class="submit-button">Submit Leave Request</button>
+    </form>
+  </div>
+
+ <!-- My Leave Section -->
+<div *ngIf="activeSection === 'myLeave'" class="my-leave">
+  <h2>My Leave</h2>
+  
+  <div *ngIf="leaves && leaves.length > 0">
+    <table class="leave-table">
+      <thead>
+        <tr>
+          <th>Leave Type</th>
+          <th>Start Date</th>
+          <th>End Date</th>
+          <th>Status</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let leave of leaves">
+          <td>{{ leave.leaveType }}</td>
+          <td>{{ leave.startDate | date }}</td>
+          <td>{{ leave.endDate | date }}</td>
+          <td [ngClass]="{'approved': leave.status === 'Approved', 'pending': leave.status === 'Pending', 'rejected': leave.status === 'Rejected'}">
+            {{ leave.status }}
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div *ngIf="!leaves || leaves.length === 0" class="no-leaves">
+    <p>No leave requests found.</p>
+  </div>
+</div>
+
+<!-- Leave Request Status Tracker Section -->
+<div *ngIf="activeSection === 'leaveTracker'" class="leave-status-tracker">
+  <h3>Leave Request Status</h3>
+  <p [ngClass]="{'approved': leaveStatus === 'Approved', 'pending': leaveStatus === 'Pending', 'rejected': leaveStatus === 'Rejected'}">
+    {{ leaveStatus }}
+  </p>
+</div>
+</div>

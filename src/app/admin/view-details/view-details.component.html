@@ -1,0 +1,68 @@
+<div class="employee-details-container">
+  <h2>Employee Details</h2>
+
+  <!-- Employee Photo -->
+  <div class="employee-photo">
+    <img *ngIf="employeeDetails.empPhoto" [src]="'data:image/jpeg;base64,' + employeeDetails.empPhoto" alt="Employee Photo" />
+  </div>
+
+  <!-- Employee Information Table -->
+  <div *ngIf="employeeDetails" class="employee-info">
+    <table>
+      <tr>
+        <th>Full Name</th>
+        <td>{{ employeeDetails.firstName }} {{ employeeDetails.lastName }}</td>
+      </tr>
+      <tr>
+        <th>Email</th>
+        <td>{{ employeeDetails.email }}</td>
+      </tr>
+      <tr>
+        <th>Phone Number</th>
+        <td>{{ employeeDetails.phoneNumber }}</td>
+      </tr>
+      <tr>
+        <th>Address</th>
+        <td>{{ employeeDetails.address }}</td>
+      </tr>
+      <tr>
+        <th>Country</th>
+        <td>{{ employeeDetails.country }}</td>
+      </tr>
+      <tr>
+        <th>Date Of Birth</th>
+        <td>{{ employeeDetails.dateOfBirth | date }}</td>
+      </tr>
+      <tr>
+        <th>Job Title</th>
+        <td>{{ employeeDetails.jobTitle }}</td>
+      </tr>
+      <tr>
+        <th>Date of Joining</th>
+        <td>{{ employeeDetails.dateOfJoining | date }}</td>
+      </tr>
+      <tr>
+        <th>Employment Type</th>
+        <td>{{ employeeDetails.employmentType }}</td>
+      </tr>
+      <tr>
+        <th>Employment Status</th>
+        <td>{{ employeeDetails.employmentStatus }}</td>
+      </tr>
+    </table>
+  </div>
+<!-- Update Button -->
+<div class="button-container">
+   <!-- Back Button -->
+ 
+   <button class="back-button" (click)="navigateBack()">Back</button>
+<button (click)="updateEmployee(employeeDetails.employeeId)" class="update-button">Update</button>
+
+ 
+  </div>
+
+  <!-- Error Message if Employee Details Not Found -->
+  <div *ngIf="errorMessage" class="error-message">
+    {{ errorMessage }}
+  </div>
+</div>

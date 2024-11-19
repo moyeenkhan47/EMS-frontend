@@ -1,0 +1,54 @@
+<div class="form-container">
+    <h1>Employee Registration</h1>
+  
+   
+  
+    <form [formGroup]="registrationForm" (ngSubmit)="onSubmit()">
+      <!-- Full Name Field -->
+      <label for="fullName">Full Name</label>
+      <input
+        id="fullName"
+        formControlName="fullName"
+        type="text"
+        placeholder="Enter full name"
+        [ngClass]="{ 'invalid': registrationForm.get('fullName')?.invalid && registrationForm.get('fullName')?.touched }"
+      />
+      <div *ngIf="registrationForm.get('fullName')?.invalid && registrationForm.get('fullName')?.touched" class="error-message">
+        Full Name is required and must be at least 3 characters long.
+      </div>
+  
+      <!-- Email Field -->
+      <label for="email">Email</label>
+      <input
+        id="email"
+        formControlName="email"
+        type="email"
+        placeholder="Enter email address"
+        [ngClass]="{ 'invalid': registrationForm.get('email')?.invalid && registrationForm.get('email')?.touched }"
+      />
+      <div *ngIf="registrationForm.get('email')?.invalid && registrationForm.get('email')?.touched" class="error-message">
+        Please enter a valid email address.
+      </div>
+  
+      <!-- Password Field -->
+      <label for="password">Password</label>
+      <input
+        id="password"
+        formControlName="password"
+        type="password"
+        placeholder="Enter password"
+        [ngClass]="{ 'invalid': registrationForm.get('password')?.invalid && registrationForm.get('password')?.touched }"
+      />
+      <div *ngIf="registrationForm.get('password')?.invalid && registrationForm.get('password')?.touched" class="error-message">
+        Password is required and must be at least 6 characters long.
+      </div>
+  
+      <!-- Submit Button -->
+      <button type="submit" [disabled]="!registrationForm.valid">Register</button>
+      <!-- Back Button -->
+       <div class="button-container">
+  <button class="back-button" (click)="navigateToEmployeeList()">Back</button>
+</div>
+    </form>
+  </div>
+  
